@@ -1,0 +1,43 @@
+.headerContainer {
+  width: 100%;
+  background-color: blue;
+}
+
+body {
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+.mainContentContainer {
+  display: grid;
+  column-gap: 10px;
+  row-gap: 10px;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 49.5%));
+}
+@media screen and (min-width: calc((3 * 10rem) + 2 * 10px)) {
+  .mainContentContainer {
+    grid-template-columns: repeat(auto-fit, minmax(10rem, calc(calc(100% - 2*10px)/3)));
+  }
+}
+@media screen and (min-width: calc((4 * 10rem) + 3 * 10px)) {
+  .mainContentContainer {
+    grid-template-columns: repeat(auto-fit, minmax(10rem, calc(calc(100% - 3*10px)/4)));
+  }
+}
+.blogPostContainer {
+  grid-column: span 1;
+  background-color: purple;
+}
+
+.largeBlogPostContainer {
+  grid-column: span 2;
+  background-color: greenyellow;
+}
+
+.navContainer {
+  grid-column: span 1;
+  background-color: orange;
+}
+
+/*# sourceMappingURL=style.css.map */

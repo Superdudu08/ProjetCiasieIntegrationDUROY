@@ -1,0 +1,54 @@
+$columnGap: 10px;
+$columnMinWidth: 10rem;
+$basculeS: calc((3 * #{$columnMinWidth}) + 2 * #{$columnGap});
+$basculeM: calc((4 * #{$columnMinWidth}) + 3 * #{$columnGap});
+.headerContainer {
+    width:100%;
+    background-color: blue;
+}
+
+body {
+    padding-left: 1%;
+    padding-right: 1%;    
+}
+
+.mainContentContainer {
+    display: grid;
+    column-gap: $columnGap;
+    row-gap:10px;
+    grid-auto-flow: dense;
+    //On change uniquement la définition de la grille en fonction de la taille de l'écran, les éléments s'adapteront ensuite à la grille.
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 49.5%));
+    //Taille S
+    @media screen and (min-width:$basculeS) {
+        $colSizeTotalS: calc(100% - 2*#{$columnGap});
+        $colSizeS: calc(#{$colSizeTotalS}/3);
+        grid-template-columns: repeat(auto-fit, minmax(10rem,$colSizeS));
+    }
+    //Taille M
+    @media screen and(min-width:$basculeM) {
+        $colSizeTotalM: calc(100% - 3*#{$columnGap});
+        $colSizeM: calc(#{$colSizeTotalM}/4);
+        grid-template-columns: repeat(auto-fit, minmax(10rem,$colSizeM));
+    }
+    //Taille L
+    @media screen and (min-width:1000rem) {
+        
+    }
+}
+
+
+.blogPostContainer {
+    grid-column: span 1;
+    background-color: purple;
+}
+
+.largeBlogPostContainer {
+    grid-column: span 2;
+    background-color: greenyellow;
+}
+
+.navContainer {
+    grid-column: span 1;
+    background-color : orange;
+}
