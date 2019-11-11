@@ -25,6 +25,17 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(10rem, calc(calc(100% - 3*10px)/4)));
   }
 }
+@media screen and (min-width: calc((5 * 10rem) + 4 * 10px)) {
+  .mainContentContainer {
+    grid-template-columns: repeat(auto-fit, minmax(10rem, calc(calc(100% - 4*10px)/5)));
+  }
+}
+@media screen and (min-width: calc((6 * 10rem) + 5 * 10px)) {
+  .mainContentContainer {
+    grid-template-columns: repeat(auto-fit, minmax(10rem, calc(calc(100% - 5*10px)/6)));
+  }
+}
+
 .blogPostContainer {
   grid-column: span 1;
   background-color: purple;

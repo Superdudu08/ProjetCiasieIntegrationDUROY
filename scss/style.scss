@@ -2,6 +2,9 @@ $columnGap: 10px;
 $columnMinWidth: 10rem;
 $basculeS: calc((3 * #{$columnMinWidth}) + 2 * #{$columnGap});
 $basculeM: calc((4 * #{$columnMinWidth}) + 3 * #{$columnGap});
+$basculeL: calc((5 * #{$columnMinWidth}) + 4 * #{$columnGap});
+$basculeXL: calc((6 * #{$columnMinWidth}) + 5 * #{$columnGap});
+
 .headerContainer {
     width:100%;
     background-color: blue;
@@ -18,22 +21,30 @@ body {
     row-gap:10px;
     grid-auto-flow: dense;
     //On change uniquement la définition de la grille en fonction de la taille de l'écran, les éléments s'adapteront ensuite à la grille.
-    grid-template-columns: repeat(auto-fit, minmax(10rem, 49.5%));
+    grid-template-columns: repeat(auto-fit, minmax($columnMinWidth, 49.5%));
     //Taille S
     @media screen and (min-width:$basculeS) {
         $colSizeTotalS: calc(100% - 2*#{$columnGap});
         $colSizeS: calc(#{$colSizeTotalS}/3);
-        grid-template-columns: repeat(auto-fit, minmax(10rem,$colSizeS));
+        grid-template-columns: repeat(auto-fit, minmax($columnMinWidth,$colSizeS));
     }
     //Taille M
     @media screen and(min-width:$basculeM) {
         $colSizeTotalM: calc(100% - 3*#{$columnGap});
         $colSizeM: calc(#{$colSizeTotalM}/4);
-        grid-template-columns: repeat(auto-fit, minmax(10rem,$colSizeM));
+        grid-template-columns: repeat(auto-fit, minmax($columnMinWidth,$colSizeM));
     }
     //Taille L
-    @media screen and (min-width:1000rem) {
-        
+    @media screen and (min-width:$basculeL) {
+        $colSizeTotalL: calc(100% - 4*#{$columnGap});
+        $colSizeL: calc(#{$colSizeTotalL}/5);
+        grid-template-columns: repeat(auto-fit, minmax($columnMinWidth,$colSizeL));
+    }
+    //Taille XL
+    @media screen and (min-width:$basculeXL) {
+        $colSizeTotalXL: calc(100% - 5*#{$columnGap});
+        $colSizeXL: calc(#{$colSizeTotalXL}/6);
+        grid-template-columns: repeat(auto-fit, minmax($columnMinWidth,$colSizeXL));
     }
 }
 
