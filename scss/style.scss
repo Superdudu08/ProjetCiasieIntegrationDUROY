@@ -1,40 +1,54 @@
-$columnGap: 10px;
+$columnGap: 20px;
 $columnMinWidth: 10rem;
 $basculeS: calc((3 * #{$columnMinWidth}) + 2 * #{$columnGap});
 $basculeM: calc((4 * #{$columnMinWidth}) + 3 * #{$columnGap});
 $basculeL: calc((5 * #{$columnMinWidth}) + 4 * #{$columnGap});
 $basculeXL: calc((6 * #{$columnMinWidth}) + 5 * #{$columnGap});
 
-.headerContainer {
-    width:100%;
-    p {
-        color:gray;
-    }
-}
-
-.logoList {
-    justify-self: flex-end;
-}
-
-.headerLogos {
-    display:flex;
-    h1{
-        color:black;
-    }
-    img {
-        width:10%;
-        height:auto;
-    }
-    p {
-        color:black;
-    }
-    
-}
-
 body {
     padding-left: 1%;
     padding-right: 1%;    
 }
+
+
+h1 {
+    color:orange;
+    font-size:1rem;
+    font-weight: bolder;
+}
+
+.headerContainer {
+    width:100%;
+    box-shadow: 3px 3px 5px 1px lightgray;
+    p {
+        color:gray;
+        font-size: 1.6rem;
+    }
+    div{
+        display: flex;
+    }
+    .headerLogos {
+        justify-content: space-between;
+        flex-wrap: wrap;
+        h1{
+            color:black;
+            font-size:2.5rem;
+            align-self: end;
+            padding-left: 10px;
+        }
+        img {
+            height:auto;
+            width:150px;
+        }
+        p {
+            color:black;
+        }
+        .logoList {
+            font-size:xx-large;
+        }   
+    }
+}
+
 
 .mainContentContainer {
     display: grid;
@@ -67,45 +81,65 @@ body {
         $colSizeXL: calc(#{$colSizeTotalXL}/6);
         grid-template-columns: repeat(auto-fit, minmax($columnMinWidth,$colSizeXL));
     }
+
+    //On applique une rotation à chaque élément avec une valeur qui alterne
+    .blogPostContainer {
+        &:nth-child(2n){
+            transform: rotate(-2deg);
+        }
+        &:nth-child(2n+1){
+            transform: rotate(2deg);
+        }
+    }
 }
 
 
 .blogPostContainer {
     grid-column: span 1;
+    box-shadow: 1px 3px 3px 3px lightgray;
+    margin-top:5px;
 
+    .postHeader{
+        width:100%;
+        height:auto;
+    }
+    .postInfoContainer {
+        padding: 8px;
+    }
+    .author {
+        text-decoration: underline;
+    }
+    .releaseDate {
+        font-style:italic;
+    }
 }
 
-.largeBlogPostContainer {
+.large {
     grid-column: span 2;    
 }
 
 .navContainer {
     grid-column: span 1;
+    ul {
+        list-style: none;
+    }
+    
+    li {
+        color:orange
+    }
 }
 
-.postHeader{
-    width:100%;
-    height:auto;
+.category {
+    position: absolute;
+    color:white;
+    font-size:0.65rem;
+    text-shadow: 1px 1px 1px gray;
+    padding-left:10px;
 }
 
-.author {
-    text-decoration: underline;
+.blackSeparator {
+    background-color:black;
+    width:50px;
+    height:5px;
 }
 
-.releaseDate {
-    font-style:italic;
-}
-
-h1 {
-    color:orange;
-    font-size:1rem;
-    font-weight: bolder;
-}
-
-ul {
-    list-style: none;
-}
-
-li {
-    color:orange
-}
