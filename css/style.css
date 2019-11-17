@@ -1,6 +1,26 @@
 .headerContainer {
   width: 100%;
-  background-color: blue;
+}
+.headerContainer p {
+  color: gray;
+}
+
+.logoList {
+  justify-self: flex-end;
+}
+
+.headerLogos {
+  display: flex;
+}
+.headerLogos h1 {
+  color: black;
+}
+.headerLogos img {
+  width: 10%;
+  height: auto;
+}
+.headerLogos p {
+  color: black;
 }
 
 body {
@@ -38,17 +58,41 @@ body {
 
 .blogPostContainer {
   grid-column: span 1;
-  background-color: purple;
 }
 
 .largeBlogPostContainer {
   grid-column: span 2;
-  background-color: greenyellow;
 }
 
 .navContainer {
   grid-column: span 1;
-  background-color: orange;
+}
+
+.postHeader {
+  width: 100%;
+  height: auto;
+}
+
+.author {
+  text-decoration: underline;
+}
+
+.releaseDate {
+  font-style: italic;
+}
+
+h1 {
+  color: orange;
+  font-size: 1rem;
+  font-weight: bolder;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  color: orange;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -7,7 +7,28 @@ $basculeXL: calc((6 * #{$columnMinWidth}) + 5 * #{$columnGap});
 
 .headerContainer {
     width:100%;
-    background-color: blue;
+    p {
+        color:gray;
+    }
+}
+
+.logoList {
+    justify-self: flex-end;
+}
+
+.headerLogos {
+    display:flex;
+    h1{
+        color:black;
+    }
+    img {
+        width:10%;
+        height:auto;
+    }
+    p {
+        color:black;
+    }
+    
 }
 
 body {
@@ -51,15 +72,40 @@ body {
 
 .blogPostContainer {
     grid-column: span 1;
-    background-color: purple;
+
 }
 
 .largeBlogPostContainer {
-    grid-column: span 2;
-    background-color: greenyellow;
+    grid-column: span 2;    
 }
 
 .navContainer {
     grid-column: span 1;
-    background-color : orange;
+}
+
+.postHeader{
+    width:100%;
+    height:auto;
+}
+
+.author {
+    text-decoration: underline;
+}
+
+.releaseDate {
+    font-style:italic;
+}
+
+h1 {
+    color:orange;
+    font-size:1rem;
+    font-weight: bolder;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    color:orange
 }
