@@ -7,7 +7,8 @@ $basculeXL: calc((6 * #{$columnMinWidth}) + 5 * #{$columnGap});
 
 body {
     padding-left: 1%;
-    padding-right: 1%;    
+    padding-right: 1%;  
+    font-family: "Cantarell", sans-serif;  
 }
 
 
@@ -20,6 +21,7 @@ h1 {
 .headerContainer {
     width:100%;
     box-shadow: 3px 3px 5px 1px lightgray;
+    
     p {
         color:gray;
         font-size: 1.6rem;
@@ -45,6 +47,10 @@ h1 {
         }
         .logoList {
             font-size:xx-large;
+            justify-content: flex-end;
+            @media screen and (max-width:$basculeM) {
+                width:100%;
+            }
         }   
     }
 }
@@ -54,7 +60,7 @@ h1 {
     display: grid;
     column-gap: $columnGap;
     row-gap:10px;
-    grid-auto-flow: dense;
+    grid-auto-flow:row;
     //On change uniquement la définition de la grille en fonction de la taille de l'écran, les éléments s'adapteront ensuite à la grille.
     grid-template-columns: repeat(auto-fit, minmax($columnMinWidth, 49.5%));
     //Taille S
@@ -62,6 +68,7 @@ h1 {
         $colSizeTotalS: calc(100% - 2*#{$columnGap});
         $colSizeS: calc(#{$colSizeTotalS}/3);
         grid-template-columns: repeat(auto-fit, minmax($columnMinWidth,$colSizeS));
+        grid-auto-flow:dense;
     }
     //Taille M
     @media screen and(min-width:$basculeM) {
@@ -85,10 +92,10 @@ h1 {
     //On applique une rotation à chaque élément avec une valeur qui alterne
     .blogPostContainer {
         &:nth-child(2n){
-            transform: rotate(-2deg);
+            transform: rotate(-1deg);
         }
         &:nth-child(2n+1){
-            transform: rotate(2deg);
+            transform: rotate(1deg);
         }
     }
 }
@@ -143,3 +150,9 @@ h1 {
     height:5px;
 }
 
+.next {
+    padding:5px;
+    margin-left:50%;
+    margin-top:6px;
+    border-radius:10px;
+}
