@@ -129,6 +129,9 @@ h1 {
     grid-column: span 1;
     ul {
         list-style: none;
+        ul {
+            padding-left:16px;
+        }
     }
     
     li {
