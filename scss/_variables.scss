@@ -1,0 +1,31 @@
+$columnGap: 20px;
+//160px = 10rem
+$columnMinWidth: 160px;
+
+// Pour calculer les points de bascule, on calcule la largeur minimum par le contenu que l'on veut afficher pour chacunes des tailles (S, M, ...)
+@function getBascule($nbCol,$minWidth,$gap){
+    $ptBascule: ($nbCol * $minWidth) + (($nbCol - 1) * $gap);
+    @return $ptBascule;
+}
+// Calcul des points de bascule
+$basculeS: getBascule(3,$columnMinWidth ,$columnGap);
+$basculeM: getBascule(4,$columnMinWidth ,$columnGap);
+$basculeL: getBascule(5,$columnMinWidth ,$columnGap);
+$basculeXL: getBascule(6,$columnMinWidth ,$columnGap);
+
+// Calcul des tailles de colonnes
+// On n'utilise pas de fonctions car le calcul utilise à la fois des pourcentages et des px, provoquant une erreur de compilation
+$colSizeTotalXS: calc(100% - 1*#{$columnGap});
+$colSizeXS: calc(#{$colSizeTotalXS}/2);
+
+$colSizeTotalS: calc(100% - 2*#{$columnGap});
+$colSizeS: calc(#{$colSizeTotalS}/3);
+
+$colSizeTotalM: calc(100% - 3*#{$columnGap});
+$colSizeM: calc(#{$colSizeTotalM}/4);
+
+$colSizeTotalL: calc(100% - 4*#{$columnGap});
+$colSizeL: calc(#{$colSizeTotalL}/5);
+
+$colSizeTotalXL: calc(100% - 5*#{$columnGap});
+$colSizeXL: calc(#{$colSizeTotalXL}/6);

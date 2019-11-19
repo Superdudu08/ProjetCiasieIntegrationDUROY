@@ -1,16 +1,10 @@
-$columnGap: 20px;
-$columnMinWidth: 10rem;
-$basculeS: calc((3 * #{$columnMinWidth}) + 2 * #{$columnGap});
-$basculeM: calc((4 * #{$columnMinWidth}) + 3 * #{$columnGap});
-$basculeL: calc((5 * #{$columnMinWidth}) + 4 * #{$columnGap});
-$basculeXL: calc((6 * #{$columnMinWidth}) + 5 * #{$columnGap});
-
+@import '_variables.scss';
+@import '_header.scss';
 body {
     padding-left: 1%;
     padding-right: 1%;  
     font-family: "Cantarell", sans-serif;  
 }
-
 
 h1 {
     color:orange;
@@ -18,77 +12,30 @@ h1 {
     font-weight: bolder;
 }
 
-.headerContainer {
-    width:100%;
-    box-shadow: 3px 3px 5px 1px lightgray;
-    
-    p {
-        color:gray;
-        font-size: 1.6rem;
-    }
-    div{
-        display: flex;
-    }
-    .headerLogos {
-        justify-content: space-between;
-        flex-wrap: wrap;
-        h1{
-            color:black;
-            font-size:2.5rem;
-            align-self: end;
-            padding-left: 10px;
-        }
-        img {
-            height:auto;
-            width:150px;
-        }
-        p {
-            color:black;
-        }
-        .logoList {
-            font-size:xx-large;
-            justify-content: flex-end;
-            @media screen and (max-width:$basculeM) {
-                width:100%;
-            }
-        }   
-    }
-}
-
-
 .mainContentContainer {
     display: grid;
     column-gap: $columnGap;
     row-gap:10px;
     grid-auto-flow:row;
     //On change uniquement la définition de la grille en fonction de la taille de l'écran, les éléments s'adapteront ensuite à la grille.
-    grid-template-columns: repeat(auto-fit, minmax($columnMinWidth, 49.5%));
+    grid-template-columns: repeat(auto-fit, minmax($columnMinWidth,$colSizeXS));
     //Taille S
     @media screen and (min-width:$basculeS) {
-        $colSizeTotalS: calc(100% - 2*#{$columnGap});
-        $colSizeS: calc(#{$colSizeTotalS}/3);
         grid-template-columns: repeat(auto-fit, minmax($columnMinWidth,$colSizeS));
         grid-auto-flow:dense;
     }
     //Taille M
     @media screen and(min-width:$basculeM) {
-        $colSizeTotalM: calc(100% - 3*#{$columnGap});
-        $colSizeM: calc(#{$colSizeTotalM}/4);
         grid-template-columns: repeat(auto-fit, minmax($columnMinWidth,$colSizeM));
     }
     //Taille L
     @media screen and (min-width:$basculeL) {
-        $colSizeTotalL: calc(100% - 4*#{$columnGap});
-        $colSizeL: calc(#{$colSizeTotalL}/5);
         grid-template-columns: repeat(auto-fit, minmax($columnMinWidth,$colSizeL));
     }
     //Taille XL
     @media screen and (min-width:$basculeXL) {
-        $colSizeTotalXL: calc(100% - 5*#{$columnGap});
-        $colSizeXL: calc(#{$colSizeTotalXL}/6);
         grid-template-columns: repeat(auto-fit, minmax($columnMinWidth,$colSizeXL));
     }
-
     //On applique une rotation à chaque élément avec une valeur qui alterne
     .blogPostContainer {
         &:nth-child(2n){
@@ -105,20 +52,31 @@ h1 {
     grid-column: span 1;
     box-shadow: 1px 3px 3px 3px lightgray;
     margin-top:5px;
+}
 
-    .postHeader{
-        width:100%;
-        height:auto;
-    }
-    .postInfoContainer {
-        padding: 8px;
-    }
-    .author {
-        text-decoration: underline;
-    }
-    .releaseDate {
-        font-style:italic;
-    }
+.postCategory {
+    position: absolute;
+    color:white;
+    font-size:0.65rem;
+    text-shadow: 1px 1px 1px gray;
+    padding-left:10px;
+}
+
+.postHeader{
+    width:100%;
+    height:auto;
+}
+
+.postInfoContainer {
+    padding: 8px;
+}
+
+.author {
+    text-decoration: underline;
+}
+
+.releaseDate {
+    font-style:italic;
 }
 
 .large {
@@ -139,20 +97,12 @@ h1 {
     }
 }
 
-.category {
-    position: absolute;
-    color:white;
-    font-size:0.65rem;
-    text-shadow: 1px 1px 1px gray;
-    padding-left:10px;
-}
-
 .blackSeparator {
     background-color:black;
     width:50px;
     height:5px;
 }
-
+// Style du bouton
 .next {
     padding:5px;
     margin-left:50%;
